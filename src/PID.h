@@ -31,6 +31,10 @@ class PID {
    */
   double TotalError();
 
+  void UpdateTwiddle(double cte);
+
+  enum ETwiddleState {Twiddle_Init, Test_Positive, Test_Negative} TwiddleState; 
+
  private:
   /**
    * PID Errors
@@ -42,9 +46,18 @@ class PID {
   /**
    * PID Coefficients
    */ 
-  double Kp;
-  double Ki;
-  double Kd;
+  double K_pid[3];
+  double nom_speed;
+  double Ts;
+  double cte_last;
+
+  /**
+   * Twiddle Coefficients
+   */   
+  int parNum;
+  double best_err;
+  double dp_pid[3];
+  double twiddle_err;
 };
 
 #endif  // PID_H
