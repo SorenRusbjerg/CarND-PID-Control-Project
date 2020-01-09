@@ -24,10 +24,17 @@ Then I tuned the car further by hand, and using different control tricks, mainly
 
 The speed control is just a simple PI controller, where negative errors have a different gain, as they correspond to braking. This was chosen as speed control is a simpler task than steering.
 
+**Resubmit changes**
+After first submition PID parameter have been tuned further with higher Kd gain and lower kp gain, to get more stable drive. Then the speed have been decreased to 40mph to 55mph. 
+Also Im in doubt if different computers run with different sample rates, which can affect control a lot, and therefore tuning on other computers might be different from my computer?
+
 **Final parameters**
-
+First submit:
 pid_steer: Kp=0.084050, Ki= 0.0104622135, Kd=0.033756267
+pid_speed: Kp=0.4, Ki=0.05
 
+Second submit:
+pid_steer: Kp=0.065, Ki=0.0104, Kd=0.065);
 pid_speed: Kp=0.4, Ki=0.05
 
 Two videos showing the car running on the track using:

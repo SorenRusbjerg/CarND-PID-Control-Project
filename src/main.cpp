@@ -14,8 +14,8 @@ constexpr double pi() { return M_PI; }
 
 // Constants
 bool USE_TWIDDLE = false;
-double speed_ref_high = 60.0; // mph
-double speed_ref_low = 50.0; // mph
+double speed_ref_high = 55.0; // mph
+double speed_ref_low = 40.0; // mph
 const double nom_speed = 50.0; // mph
 
 double deg2rad(double x) { return x * pi() / 180; }
@@ -53,7 +53,7 @@ int main()
    * Initialize the pid variable.
    */
   // set default variables to best guess
-  pid_steer.Init(0.084050 * 1.0, 0.0104622135, 0.33756267 * 0.1);
+  pid_steer.Init(0.065, 0.0104, 0.065);
   pid_speed.Init(0.4, 0.05, 0.0);
 
   h.onMessage([&pid_steer, &pid_speed, &error_sum, &count, &twiddle_count](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
